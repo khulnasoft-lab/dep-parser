@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.23.6
 
 require (
-	github.com/BurntSushi/toml v1.4.0
+	github.com/BurntSushi/toml v1.5.0
 	github.com/aquasecurity/go-pep440-version v0.0.1
 	github.com/aquasecurity/go-version v0.0.1
 	github.com/hashicorp/go-multierror v1.1.1
