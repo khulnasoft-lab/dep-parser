@@ -1,11 +1,11 @@
 TEMP_DIR := ./.tmp
 
 # Command templates #################################
-LINT_CMD := $(TEMP_DIR)/golangci-lint run --tests=false
+LINT_CMD := $(TEMP_DIR)/golangci-lint run --tests=false --disable=unused
 GOIMPORTS_CMD := $(TEMP_DIR)/gosimports -local github.com/khulnasoft
 
 # Tool versions #################################
-GOLANGCILINT_VERSION := v1.55.1
+GOLANGCILINT_VERSION := v2.4.0
 GOSIMPORTS_VERSION := v0.3.8
 GOLICENSES_VERSION := v5.0.1
 
