@@ -67,7 +67,8 @@ bootstrap: $(TEMP_DIR) bootstrap-go bootstrap-tools ## Download and install all 
 
 .PHONY: bootstrap-tools
 bootstrap-tools: $(TEMP_DIR)
-	GO111MODULE=on GOBIN=$(realpath $(TEMP_DIR)) go get -u golang.org/x/perf/cmd/benchstat
+	# Install benchstat in a temporary module to avoid affecting main go.mod
+	cd $(TEMP_DIR) && GO111MODULE=on GOBIN=$(realpath $(TEMP_DIR)) go mod init temp && go get -u golang.org/x/perf/cmd/benchstat
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(TEMP_DIR)/ $(GOLANGCILINT_VERSION)
 	GOBIN="$(realpath $(TEMP_DIR))" go install github.com/google/go-licenses@$(GOLICENSES_VERSION)
 	GOBIN="$(realpath $(TEMP_DIR))" go install github.com/rinchsan/gosimports/cmd/gosimports@$(GOSIMPORTS_VERSION)
